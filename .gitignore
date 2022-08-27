@@ -1,0 +1,10 @@
+/.vs
+/.git
+/BusinessLayer/bin
+/BusinessLayer/obj
+/CommonLayer/bin
+/CommonLayer/obj
+/RepositoryLayer/bin
+/RepositoryLayer/obj
+/FundooNote/bin
+/FundooNote/obj
