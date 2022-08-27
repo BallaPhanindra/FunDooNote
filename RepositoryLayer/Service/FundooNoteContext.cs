@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RepositoryLayer.Service.Entities;
+using RepositoryLayer.Services.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
