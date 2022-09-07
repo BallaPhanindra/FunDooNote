@@ -34,7 +34,7 @@ namespace RepositoryLayer.Services
                     return null;
                 }
 
-                return GenerateJwtToken(user.Email, user.Password);
+                return GenerateJwtToken(user.Email,user.UserId);
             }
             catch (Exception ex)
             {
@@ -43,21 +43,28 @@ namespace RepositoryLayer.Services
 
         }
 
-        private string GenerateJwtToken(string email, string password)
+        private string GenerateJwtToken(string email, int userId)
         {
 
             try
             {
-                var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
-                var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-                var token = new JwtSecurityToken(_config["Jwt:Issuer"],
-                  _config["Jwt:Issuer"],
-                  null,
-                  expires: DateTime.Now.AddMinutes(120),
-                  signingCredentials: credentials);
-
-                return new JwtSecurityTokenHandler().WriteToken(token);
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var tokenKey = Encoding.UTF8.GetBytes(_config["Jwt:Key"]);
+                var tokenDescriptor = new SecurityTokenDescriptor
+                {
+                    Subject = new ClaimsIdentity(new Claim[]
+                    {
+                        new Claim("Email", email),
+                        new Claim("UserId", userId.ToString()),
+                    }),
+                    Expires = DateTime.UtcNow.AddHours(2),
+                    SigningCredentials =
+                    new SigningCredentials(
+                    new SymmetricSecurityKey(tokenKey),
+                    SecurityAlgorithms.HmacSha256Signature),
+                };
+                var token = tokenHandler.CreateToken(tokenDescriptor);
+                return tokenHandler.WriteToken(token);
             }
             catch (Exception ex)
             {
@@ -91,7 +98,7 @@ namespace RepositoryLayer.Services
             try
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
-                var tokenKey = Encoding.ASCII.GetBytes("THIS_IS_MY_KEY_TO_GENERATE_TOKEN");
+                var tokenKey = Encoding.ASCII.GetBytes(_config["Jwt:Key"]);
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
                     Subject = new ClaimsIdentity(new Claim[]
@@ -140,7 +147,7 @@ namespace RepositoryLayer.Services
                 }
                 Message message = new Message();
                 message.Formatter = new BinaryMessageFormatter();
-                message.Body = GenerateJwtToken(email, user.Password);
+                message.Body = GenerateJwtToken(email, user.UserId);
                 message.Label = "Forget Password Email";
                 funDoNoteQ.Send(message);
                 Message msg = funDoNoteQ.Receive();
@@ -183,5 +190,23 @@ namespace RepositoryLayer.Services
             }
         }
 
+        public bool ResetPassword(string email, ResetModel resetModel)
+        {
+            try
+            {
+                var user = _funDoNoteContext.users.Where(x => x.Email == email).FirstOrDefault();
+                if (resetModel.NewPassword != resetModel.ConfirmNewPassword)
+                {
+                    return false;
+                }
+                user.Password = resetModel.NewPassword;
+                _funDoNoteContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

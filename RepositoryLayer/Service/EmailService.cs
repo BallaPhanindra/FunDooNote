@@ -21,7 +21,7 @@ namespace RepositoryLayer.Service
                 msgObj.IsBodyHtml = true;
                 msgObj.From = new MailAddress("phanindratestapi@gmail.com");
                 msgObj.Subject = "Password Reset Link";
-                msgObj.Body = "<html><body><p><b>Hi " + firstName + " </b>,<br/>Please click the below link for reset password.<br/>" +
+                msgObj.Body = "<html><body><p><b>Hi " + $"{firstName}" + " </b>,<br/>Please click the below link for reset password.<br/>" +
                               $"{token}" +
                               "<br/><br/><br/><b>Thanks&Regards </b><br/><b>Mail Team(donot - reply to this)</b></p></body></html>";
                 client.Send(msgObj);
