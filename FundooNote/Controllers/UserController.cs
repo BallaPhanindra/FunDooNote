@@ -1,22 +1,25 @@
 ﻿using BusinessLayer.Interfaces;
 using CommonLayer.User;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using RepositoryLayer.Service;
 using System;
 
-namespace funDoNote.Controllers
+namespace FundooNote.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
-        IUserBusinessLogic userBL;
+        IUserBusinessLogic _userBL;
         private IConfiguration _config;
-
-        public UserController(IUserBusinessLogic userBL, IConfiguration config)
+        private readonly FundooNoteContext _fundooNoteContext;
+        public UserController(IUserBusinessLogic userBL, IConfiguration config, FundooNoteContext fundooNoteContext )
         {
-            this.userBL = userBL;
+            this._userBL = userBL;
             this._config = config;
+            this._fundooNoteContext = fundooNoteContext;
         }
 
         [HttpPost("RegisterUser")]
@@ -25,7 +28,7 @@ namespace funDoNote.Controllers
         {
             try
             {
-                this.userBL.RegisterUser(userPostModel);
+                this._userBL.RegisterUser(userPostModel);
                 return this.Ok(new { success = true, status = 200, message = $"Registration successful for {userPostModel.Email}" });
             }
             catch (Exception ex)
@@ -38,7 +41,7 @@ namespace funDoNote.Controllers
         {
             try
             {
-                string token = this.userBL.LoginUser(loginModel);
+                string token = this._userBL.LoginUser(loginModel);
                 return this.Ok(new { Token = token, success = true, status = 200, message = $"login successful for {loginModel.Email}" });
             }
             catch (Exception ex)
