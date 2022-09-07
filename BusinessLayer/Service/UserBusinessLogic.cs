@@ -39,7 +39,6 @@ namespace BusinessLayer.Services
                 throw ex;
             }
         }
-
         public bool ForgotPassword(string email)
         {
             try
