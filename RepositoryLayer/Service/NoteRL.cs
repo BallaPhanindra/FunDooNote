@@ -3,6 +3,7 @@ using RepositoryLayer.Interface;
 using RepositoryLayer.Service.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace RepositoryLayer.Service
@@ -10,7 +11,6 @@ namespace RepositoryLayer.Service
     public class NoteRL : INoteRL
     {
         readonly FundooNoteContext _noteContext;
-
         public NoteRL(FundooNoteContext noteContext)
         {
             this._noteContext = noteContext;
@@ -35,6 +35,28 @@ namespace RepositoryLayer.Service
             {
                 throw ex;
             }
+        }
+        public void UpdateNote(UpdateNoteModel updateNoteModel, int UserId, int NoteId)
+        {
+            try
+                {
+                    var note = _noteContext.Note.Where(x => x.NoteId == NoteId).FirstOrDefault();
+
+                    note.Title = updateNoteModel.Title != "string" ? updateNoteModel.Title : note.Title;
+                    note.Description = updateNoteModel.Description != "string" ? updateNoteModel.Description : note.Description;
+                    note.Color = updateNoteModel.Color != "string" ? updateNoteModel.Color : note.Color;
+                    note.IsPin = updateNoteModel.IsPin;
+                    note.IsReminder = updateNoteModel.IsReminder;
+                    note.IsArchieve = updateNoteModel.IsArchieve;
+                    note.IsTrash = updateNoteModel.IsArchieve;
+                    note.Reminder = updateNoteModel.Reminder;
+                    note.ModifiedDate = DateTime.Now;
+                    _noteContext.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
         }
     }
 }

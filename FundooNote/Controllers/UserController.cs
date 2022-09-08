@@ -1,4 +1,4 @@
-﻿using BusinessLayer.Interfaces;
+﻿using BusinessLayer.Interface;
 using CommonLayer.User;
 using Experimental.System.Messaging;
 using Microsoft.AspNetCore.Authorization;

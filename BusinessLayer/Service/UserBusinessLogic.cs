@@ -1,12 +1,12 @@
-﻿using BusinessLayer.Interfaces;
+﻿using BusinessLayer.Interface;
 using CommonLayer.User;
-using RepositoryLayer.Interfaces;
-using RepositoryLayer.Services;
+using RepositoryLayer.Interface;
+using RepositoryLayer.Service;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BusinessLayer.Services
+namespace BusinessLayer.Service
 {
     public class UserBL : IUserBusinessLogic
     {

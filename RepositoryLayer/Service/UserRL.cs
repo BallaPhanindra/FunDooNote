@@ -2,7 +2,7 @@
 using Experimental.System.Messaging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using RepositoryLayer.Interfaces;
+using RepositoryLayer.Interface;
 using RepositoryLayer.Service;
 using RepositoryLayer.Service.Entities;
 using System;
@@ -12,7 +12,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 
-namespace RepositoryLayer.Services
+namespace RepositoryLayer.Service
 {
     public class UserRL : IUserRL
     {
