@@ -144,5 +144,23 @@ namespace RepositoryLayer.Service
                 throw ex;
             }
         }
+        public async Task<bool> DeleteLabel(int UserId, int NoteId)
+        {
+            try
+            {
+                var user = await _funDoNoteContext.users.Where(x => x.UserId == UserId).FirstOrDefaultAsync();
+                var label = await this._funDoNoteContext.Labels.Where(x => x.NoteId == NoteId && x.UserId == UserId).FirstOrDefaultAsync();
+                if (label.NoteId == NoteId)
+                {
+                    _funDoNoteContext.Labels.Remove(label);
+                }
+                _funDoNoteContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
