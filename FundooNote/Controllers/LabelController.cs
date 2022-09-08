@@ -1,10 +1,12 @@
 ﻿using BusinessLayer.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using RepositoryLayer.Service;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace FundooNote.Controllers
 {
@@ -79,6 +81,22 @@ namespace FundooNote.Controllers
 
             var labels = this._labelBL.GetLabelByUserIdWithJoin(UserID);
             return this.Ok(new { success = true, status = 200, Labels = labels });
+        }
+
+        [Authorize]
+        [HttpPut("UpdateLabel/{NoteId}/{newLabel}")]
+        public async Task<IActionResult> UpdateLabel(int NoteId, string newLabel)
+        {
+            var labelNote = await _funDoNoteContext.Note.Where(x => x.NoteId == NoteId).FirstOrDefaultAsync();
+            if (labelNote == null)
+            {
+                return this.BadRequest(new { success = false, status = 400, message = "Note doesn't exist " });
+            }
+            var userid = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
+            int UserID = Int32.Parse(userid.Value);
+
+            await this._labelBL.UpdateLabel(UserID, NoteId, newLabel);
+            return this.Ok(new { success = true, status = 200, message = "Label Updated successfully" });
         }
     }
 }

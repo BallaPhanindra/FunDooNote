@@ -1,11 +1,11 @@
 ﻿using BusinessLayer.Interface;
 using CommonLayer.User;
 using RepositoryLayer.Interface;
-using RepositoryLayer.Service;
 using RepositoryLayer.Service.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BusinessLayer.Service
 {
@@ -17,33 +17,33 @@ namespace BusinessLayer.Service
             this._levelRL = levelRL;
         }
 
-        public void AddLabel(int UserId, int NoteId, string labelName)
+        public async Task AddLabel(int UserId, int NoteId, string labelName)
         {
             try
             {
-                this._levelRL.AddLabel(UserId, NoteId, labelName);
+                await this._levelRL.AddLabel(UserId, NoteId, labelName);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        public Label GetLabelsByNoteId(int UserId, int NoteId)
+        public async Task<Label> GetLabelsByNoteId(int UserId, int NoteId)
         {
             try
             {
-                return this._levelRL.GetLabelsByNoteId(UserId, NoteId);
+                return await this._levelRL.GetLabelsByNoteId(UserId, NoteId);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        public List<GetLabelModel> GetLabelByNoteIdwithJoin(int UserId, int NoteId)
+        public async Task<GetLabelModel> GetLabelByNoteIdwithJoin(int UserId, int NoteId)
         {
             try
             {
-                return this._levelRL.GetLabelByNoteIdwithJoin(UserId, NoteId);
+                return await this._levelRL.GetLabelByNoteIdwithJoin(UserId, NoteId);
             }
             catch (Exception ex)
             {
@@ -56,6 +56,18 @@ namespace BusinessLayer.Service
             try
             {
                 return this._levelRL.GetLabelByUserIdWithJoin(UserId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task UpdateLabel(int UserId, int NoteId, string newLabel)
+        {
+            try
+            {
+                await this._levelRL.UpdateLabel(UserId, NoteId, newLabel);
             }
             catch (Exception ex)
             {
