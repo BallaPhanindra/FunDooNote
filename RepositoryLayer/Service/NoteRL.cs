@@ -205,5 +205,82 @@ namespace RepositoryLayer.Service
             }
 
         }
+        public async Task<bool> ReminderNote(int UserId, int NoteId, DateTime reminder)
+        {
+            try
+            {
+                var note = await _noteContext.Note.Where(x => x.NoteId == NoteId).FirstOrDefaultAsync();
+                if (note == null || note.IsTrash == true)
+                {
+                    return false;
+                }
+                note.IsReminder = true;
+                note.Reminder = reminder;
+
+                _noteContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<bool> DeleteReminderNote(int UserId, int NoteId)
+        {
+            try
+            {
+                var note = await _noteContext.Note.Where(x => x.NoteId == NoteId).FirstOrDefaultAsync();
+                if (note == null || note.IsTrash == true)
+                {
+                    return false;
+                }
+                note.IsReminder = false;
+                note.Reminder = DateTime.Now;
+
+                _noteContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task UpdateColor(int UserId, int NoteId, string Color)
+        {
+            try
+            {
+                var note = await _noteContext.Note.Where(x => x.NoteId == NoteId).FirstOrDefaultAsync();
+                if (note != null || note.IsTrash != true)
+                {
+                    note.Color = Color;
+                }
+                _noteContext.SaveChanges();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<GetColorModel> GetAllColour(int UserId)
+        {
+            try
+            {
+                return _noteContext.users.Where(u => u.UserId == UserId)
+                .Join(_noteContext.Note,
+                u => u.UserId,
+                n => n.UserId,
+                (u, n) => new GetColorModel
+                {
+                    Color = n.Color
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

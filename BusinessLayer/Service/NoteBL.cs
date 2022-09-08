@@ -121,5 +121,52 @@ namespace BusinessLayer.Service
                 throw ex;
             }
         }
+        public async Task<bool> ReminderNote(int UserId, int NoteId, DateTime reminder)
+        {
+            try
+            {
+                return await _noteRL.ReminderNote(UserId, NoteId, reminder);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<bool> DeleteReminderNote(int UserId, int NoteId)
+        {
+            try
+            {
+                return await _noteRL.DeleteReminderNote(UserId, NoteId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task UpdateColor(int UserId, int NoteId, string Color)
+        {
+            try
+            {
+                await _noteRL.UpdateColor(UserId, NoteId, Color);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<GetColorModel> GetAllColour(int UserId)
+        {
+            try
+            {
+                return _noteRL.GetAllColour(UserId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
