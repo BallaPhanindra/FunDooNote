@@ -1,6 +1,5 @@
 using BusinessLayer.Interface;
 using BusinessLayer.Service;
-using BusinessLayer.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -15,7 +14,6 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using RepositoryLayer.Interface;
 using RepositoryLayer.Service;
-using RepositoryLayer.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;

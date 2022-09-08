@@ -6,7 +6,7 @@ using RepositoryLayer.Service;
 using System;
 using System.Linq;
 
-namespace funDoNote.Controllers
+namespace FundooNote.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -36,6 +36,49 @@ namespace funDoNote.Controllers
 
             this._labelBL.AddLabel(UserID, NoteId, labelName);
             return this.Ok(new { success = true, status = 200, message = "Label added successfully" });
+        }
+        [Authorize]
+        [HttpGet("GetLabels/{NoteId}")]
+        public IActionResult GetLabels(int NoteId)
+        {
+            var labelNote = _funDoNoteContext.Note.Where(x => x.NoteId == NoteId).FirstOrDefault();
+            if (labelNote == null)
+            {
+                return this.BadRequest(new { success = false, status = 400, message = "Note doesn't exist " });
+            }
+            var userid = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
+            int UserID = Int32.Parse(userid.Value);
+
+
+            var labels = this._labelBL.GetLabelsByNoteId(UserID, NoteId);
+            return this.Ok(new { success = true, status = 200, Labels = labels });
+        }
+        [Authorize]
+        [HttpGet("GetLabelByNoteIdwithJoin/{NoteId}")]
+        public IActionResult GetLabelByNoteIdwithJoin(int NoteId)
+        {
+            var labelNote = _funDoNoteContext.Note.Where(x => x.NoteId == NoteId).FirstOrDefault();
+            if (labelNote == null)
+            {
+                return this.BadRequest(new { success = false, status = 400, message = "Note doesn't exist " });
+            }
+            var userid = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
+            int UserID = Int32.Parse(userid.Value);
+
+
+            var labels = this._labelBL.GetLabelByNoteIdwithJoin(UserID, NoteId);
+            return this.Ok(new { success = true, status = 200, Labels = labels });
+        }
+        [Authorize]
+        [HttpGet("GetLabelByUserIdWithJoin")]
+        public IActionResult GetLabelByUserIdWithJoin()
+        {
+            var userid = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
+            int UserID = Int32.Parse(userid.Value);
+
+
+            var labels = this._labelBL.GetLabelByUserIdWithJoin(UserID);
+            return this.Ok(new { success = true, status = 200, Labels = labels });
         }
     }
 }
