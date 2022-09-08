@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using CommonLayer.User;
 using RepositoryLayer.Service.Entities;
 
@@ -14,5 +15,6 @@ namespace BusinessLayer.Interface
         public Note GetNote(int UserId, int NoteId);
         public List<Note> GetAllNotes(int UserId);
         public List<NoteResponseModel> GetAllNotesUsingJoin(int UserId);
+        Task<bool> ArchieveNote(int UserId, int NoteId);
     }
 }

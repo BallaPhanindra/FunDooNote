@@ -1,10 +1,12 @@
 ﻿using CommonLayer.User;
+using Microsoft.EntityFrameworkCore;
 using RepositoryLayer.Interface;
 using RepositoryLayer.Service.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace RepositoryLayer.Service
 {
@@ -125,6 +127,30 @@ namespace RepositoryLayer.Service
 
                 }).ToList();
 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task<bool> ArchieveNote(int UserId, int NoteId)
+        {
+            try
+            {
+
+                var note = await _noteContext.Note.Where(x => x.NoteId == NoteId).FirstOrDefaultAsync();
+                if (note == null || note.IsTrash == true)
+                {
+                    return false;
+                }
+
+                if (note.IsArchieve == true)
+                {
+                    note.IsArchieve = false;
+                }
+                note.IsArchieve = true;
+                await _noteContext.SaveChangesAsync();
+                return true;
             }
             catch (Exception ex)
             {
