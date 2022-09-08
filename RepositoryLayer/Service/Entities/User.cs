@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace RepositoryLayer.Services.Entities
+namespace RepositoryLayer.Service.Entities
 {
     public class User
     {

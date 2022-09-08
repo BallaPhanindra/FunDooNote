@@ -1,4 +1,6 @@
+using BusinessLayer.Interface;
 using BusinessLayer.Interfaces;
+using BusinessLayer.Service;
 using BusinessLayer.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -12,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using RepositoryLayer.Interface;
 using RepositoryLayer.Interfaces;
 using RepositoryLayer.Service;
 using RepositoryLayer.Services;
@@ -95,6 +98,8 @@ namespace FundooNote
 
             services.AddTransient<IUserRL, UserRL>();
             services.AddTransient<IUserBusinessLogic, UserBL>();
+            services.AddTransient<INoteRL, NoteRL>();
+            services.AddTransient<INoteBL, NoteBL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

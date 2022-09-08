@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RepositoryLayer.Services.Entities;
+using RepositoryLayer.Service.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,5 +13,6 @@ namespace RepositoryLayer.Service
 
         }
         public DbSet<User> users { get; set; }
+        public DbSet<Note> Note { get; set; }
     }
 }
