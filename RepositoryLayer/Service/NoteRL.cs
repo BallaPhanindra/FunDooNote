@@ -76,6 +76,60 @@ namespace RepositoryLayer.Service
                 throw ex;
             }
         }
+        public Note GetNote(int UserId, int NoteId)
+        {
+            try
+            {
+                var note = _noteContext.Note.Where(x => x.NoteId == NoteId).FirstOrDefault();
 
+                return note;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Note> GetAllNotes(int UserId)
+        {
+            try
+            {
+                var note = _noteContext.Note.Where(x => x.UserId == UserId).ToList(); //using LINQ
+                return note;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<NoteResponseModel> GetAllNotesUsingJoin(int UserId)
+        {
+            try
+            {
+                //Using LINQ join
+                return _noteContext.users.Where(u => u.UserId == UserId)
+                .Join(_noteContext.Note,
+                u => u.UserId,
+                n => n.UserId,
+                (u, n) => new NoteResponseModel
+                {
+                    NoteId = n.NoteId,
+                    UserId = u.UserId,
+                    Title = n.Title,
+                    Description = n.Description,
+                    Color = n.Color,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    Email = u.Email
+
+                }).ToList();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

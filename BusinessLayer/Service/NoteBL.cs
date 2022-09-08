@@ -2,6 +2,7 @@
 using CommonLayer.User;
 using RepositoryLayer.Interface;
 using RepositoryLayer.Service;
+using RepositoryLayer.Service.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -47,6 +48,43 @@ namespace BusinessLayer.Service
             {
                 throw ex;
             }
+        }
+        public Note GetNote(int UserId, int NoteId)
+        {
+            try
+            {
+                return _noteRL.GetNote(UserId, NoteId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public List<Note> GetAllNotes(int UserId)
+        {
+            try
+            {
+                return _noteRL.GetAllNotes(UserId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<NoteResponseModel> GetAllNotesUsingJoin(int UserId)
+        {
+            try
+            {
+                return _noteRL.GetAllNotesUsingJoin(UserId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }
