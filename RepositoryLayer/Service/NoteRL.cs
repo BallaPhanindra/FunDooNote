@@ -58,5 +58,24 @@ namespace RepositoryLayer.Service
                     throw ex;
                 }
         }
+        public bool DeleteNote(int UserId, int NoteId)
+        {
+            try
+            {
+                var note = _noteContext.Note.Where(x => x.NoteId == NoteId).FirstOrDefault();
+                if (note == null)
+                {
+                    return false;
+                }
+                _noteContext.Note.Remove(note);
+                _noteContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

@@ -37,5 +37,16 @@ namespace BusinessLayer.Service
                 throw ex;
             }
         }
+        public bool DeleteNote(int UserId, int NoteId)
+        {
+            try
+            {
+                return this._noteRL.DeleteNote(UserId, NoteId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
