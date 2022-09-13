@@ -1,11 +1,17 @@
 ﻿using BusinessLayer.Interface;
+using CommonLayer.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using RepositoryLayer.Service;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace FundooNote.Controllers
@@ -17,12 +23,14 @@ namespace FundooNote.Controllers
         private IConfiguration _config;
         private FundooNoteContext _funDoNoteContext;
         private ILabelBL _labelBL;
+        private readonly IDistributedCache _cache;
+        private readonly IMemoryCache _memoryCache;
+        private INoteBL _noteBL;
         public LabelController(ILabelBL labelBL, IConfiguration config, FundooNoteContext funDoNoteContext)
         {
             this._funDoNoteContext = funDoNoteContext;
             this._config = config;
             this._labelBL = labelBL;
-
         }
         [Authorize]
         [HttpPost("AddLabelName/{NoteId}/{labelName}")]
@@ -112,6 +120,40 @@ namespace FundooNote.Controllers
 
             await this._labelBL.DeleteLabel(UserID, NoteId);
             return this.Ok(new { success = true, status = 200, message = "Label Deleted successfully" });
+        }
+        [Authorize]
+        [HttpGet("GetAllNoteByJoinUsingRedis")]
+        public IActionResult GetAllNoteByJoinUsingRedis()
+        {
+            try
+            {
+                string CacheKey = "NoteList";
+                string serializeNoteList;
+                var noteList = new List<NoteResponseModel>();
+                var redisNoteList = _cache.Get(CacheKey);
+
+                if (redisNoteList != null)
+                {
+                    serializeNoteList = Encoding.UTF8.GetString(redisNoteList);
+                    noteList = JsonConvert.DeserializeObject<List<NoteResponseModel>>(serializeNoteList);
+                }
+                else
+                {
+                    var userid = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
+                    int UserID = Int32.Parse(userid.Value);
+                    noteList = this._noteBL.GetAllNotesUsingJoin(UserID);
+                    serializeNoteList = JsonConvert.SerializeObject(noteList);
+                    redisNoteList = Encoding.UTF8.GetBytes(serializeNoteList);
+                    var option = new DistributedCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(20)).SetAbsoluteExpiration(TimeSpan.FromHours(6));
+                    _cache.Set(CacheKey, redisNoteList, option);
+
+                }
+                return this.Ok(new { success = true, status = 200, noteList = noteList });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
