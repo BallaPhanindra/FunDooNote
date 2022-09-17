@@ -1,0 +1,127 @@
+2022-09-17 10:56:30.1348|DEBUG|Microsoft.Extensions.Hosting.Internal.Host|Hosting starting
+2022-09-17 10:56:30.2543|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\balla\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-17 10:56:30.2543|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\balla\AppData\Local\ASP.NET\DataProtection-Keys\key-c5ec810c-1924-4616-b9bc-9a30632718ba.xml'.
+2022-09-17 10:56:30.2701|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {c5ec810c-1924-4616-b9bc-9a30632718ba}.
+2022-09-17 10:56:30.2701|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver|Considering key {c5ec810c-1924-4616-b9bc-9a30632718ba} with expiration date 2022-11-27 05:56:59Z as default key.
+2022-09-17 10:56:30.3041|DEBUG|Microsoft.AspNetCore.DataProtection.TypeForwardingActivator|Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.28.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-09-17 10:56:30.3041|DEBUG|Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor|Decrypting secret element using Windows DPAPI.
+2022-09-17 10:56:30.3041|DEBUG|Microsoft.AspNetCore.DataProtection.TypeForwardingActivator|Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.28.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-09-17 10:56:30.3041|DEBUG|Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory|Opening CNG algorithm 'AES' from provider '(null)' with chaining mode CBC.
+2022-09-17 10:56:30.3041|DEBUG|Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory|Opening CNG algorithm 'SHA256' from provider '(null)' with HMAC.
+2022-09-17 10:56:30.3149|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider|Using key {c5ec810c-1924-4616-b9bc-9a30632718ba} as the default key.
+2022-09-17 10:56:30.3149|DEBUG|Microsoft.AspNetCore.DataProtection.Internal.DataProtectionHostedService|Key ring with default key {c5ec810c-1924-4616-b9bc-9a30632718ba} was loaded during application startup.
+2022-09-17 10:56:30.6467|DEBUG|Microsoft.AspNetCore.Hosting.Diagnostics|Loaded hosting startup assembly FundooNote
+2022-09-17 10:56:30.6467|DEBUG|Microsoft.AspNetCore.Hosting.Diagnostics|Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-09-17 10:56:30.6467|DEBUG|Microsoft.AspNetCore.Hosting.Diagnostics|Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-09-17 10:56:30.6467|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2022-09-17 10:56:30.6581|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2022-09-17 10:56:30.6581|INFO|Microsoft.Hosting.Lifetime|Content root path: D:\CustomFS\FundooNote\FundooNote
+2022-09-17 10:56:30.6581|DEBUG|Microsoft.Extensions.Hosting.Internal.Host|Hosting started
+2022-09-17 10:56:30.7457|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2.0 GET https://localhost:44300/swagger/index.html  
+2022-09-17 10:56:30.7680|DEBUG|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|Wildcard detected, all requests with hosts will be allowed.
+2022-09-17 10:56:30.7680|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed.
+2022-09-17 10:56:30.7889|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|No candidates found for the request path '/swagger/index.html'
+2022-09-17 10:56:30.7889|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request did not match any endpoints
+2022-09-17 10:56:31.2776|DEBUG|Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler|AuthenticationScheme: Bearer was not authenticated.
+2022-09-17 10:56:31.3178|DEBUG|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|Response markup is scheduled to include browser refresh script injection.
+2022-09-17 10:56:31.4250|DEBUG|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|Response markup was updated to include browser refresh script injection.
+2022-09-17 10:56:31.4250|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished in 688.9377ms 200 text/html;charset=utf-8
+2022-09-17 10:56:31.4776|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2.0 GET https://localhost:44300/_framework/aspnetcore-browser-refresh.js  
+2022-09-17 10:56:31.4776|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2.0 GET https://localhost:44300/_vs/browserLink  
+2022-09-17 10:56:31.4776|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished in 3.857ms 200 application/javascript; charset=utf-8
+2022-09-17 10:56:31.5226|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished in 44.3222ms 200 text/javascript; charset=UTF-8
+2022-09-17 10:56:31.6273|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2.0 GET https://localhost:44300/swagger/v1/swagger.json  
+2022-09-17 10:56:31.6273|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed.
+2022-09-17 10:56:31.6273|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|No candidates found for the request path '/swagger/v1/swagger.json'
+2022-09-17 10:56:31.6273|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request did not match any endpoints
+2022-09-17 10:56:31.6273|DEBUG|Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler|AuthenticationScheme: Bearer was not authenticated.
+2022-09-17 10:56:31.7464|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished in 119.1462ms 200 application/json;charset=utf-8
+2022-09-17 10:57:10.0966|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2.0 POST https://localhost:44300/User/LoginUser application/json 75
+2022-09-17 10:57:10.0966|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed.
+2022-09-17 10:57:10.0966|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/User/LoginUser'
+2022-09-17 10:57:10.0966|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'FundooNote.Controllers.UserController.LoginUser (FundooNote)' with route pattern 'User/LoginUser' is valid for the request path '/User/LoginUser'
+2022-09-17 10:57:10.0966|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'FundooNote.Controllers.UserController.LoginUser (FundooNote)'
+2022-09-17 10:57:10.0966|DEBUG|Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler|AuthenticationScheme: Bearer was not authenticated.
+2022-09-17 10:57:10.1114|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'FundooNote.Controllers.UserController.LoginUser (FundooNote)'
+2022-09-17 10:57:10.1114|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory|Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider
+2022-09-17 10:57:10.1510|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "LoginUser", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult LoginUser(CommonLayer.User.LoginModel) on controller FundooNote.Controllers.UserController (FundooNote).
+2022-09-17 10:57:10.1510|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): None
+2022-09-17 10:57:10.1510|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): None
+2022-09-17 10:57:10.1510|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)
+2022-09-17 10:57:10.1510|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None
+2022-09-17 10:57:10.1510|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)
+2022-09-17 10:57:10.1510|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller FundooNote.Controllers.UserController (FundooNote)
+2022-09-17 10:57:10.4895|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|An 'IServiceProvider' was created for internal use by Entity Framework.
+2022-09-17 10:57:10.5120|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller FundooNote.Controllers.UserController (FundooNote)
+2022-09-17 10:57:10.5120|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to bind parameter 'loginModel' of type 'CommonLayer.User.LoginModel' ...
+2022-09-17 10:57:10.5193|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Attempting to bind parameter 'loginModel' of type 'CommonLayer.User.LoginModel' using the name '' in request data ...
+2022-09-17 10:57:10.5193|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2022-09-17 10:57:10.5193|DEBUG|Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter|JSON input formatter succeeded, deserializing to type 'CommonLayer.User.LoginModel'
+2022-09-17 10:57:10.5193|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Done attempting to bind parameter 'loginModel' of type 'CommonLayer.User.LoginModel'.
+2022-09-17 10:57:10.5193|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to bind parameter 'loginModel' of type 'CommonLayer.User.LoginModel'.
+2022-09-17 10:57:10.5193|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to validate the bound parameter 'loginModel' of type 'CommonLayer.User.LoginModel' ...
+2022-09-17 10:57:10.5344|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to validate the bound parameter 'loginModel' of type 'CommonLayer.User.LoginModel'.
+2022-09-17 10:57:10.5344|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter.
+2022-09-17 10:57:10.5344|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter.
+2022-09-17 10:57:10.5344|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter.
+2022-09-17 10:57:10.5344|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter.
+2022-09-17 10:57:10.5344|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method FundooNote.Controllers.UserController.LoginUser (FundooNote) - Validation state: Valid
+2022-09-17 10:57:10.5344|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method FundooNote.Controllers.UserController.LoginUser (FundooNote) with arguments (CommonLayer.User.LoginModel)
+2022-09-17 10:57:11.0918|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'UserId'} was not created on entity type 'Label' as the properties are already covered by the index {'UserId', 'NoteId'}.
+2022-09-17 10:57:11.3489|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 5.0.6 initialized 'FundooNoteContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-09-17 10:57:11.5229|DEBUG|Microsoft.EntityFrameworkCore.Query|Compiling query expression: 
+'DbSet<User>()
+    .Where(x => x.Email == __loginModel_Email_0 && x.Password == __loginModel_Password_1)
+    .FirstOrDefault()'
+2022-09-17 10:57:11.7085|DEBUG|Microsoft.EntityFrameworkCore.Query|Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<User>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.UserId (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.ConfirmPassword (string), 1], [Property: User.CreatedDate (DateTime) Required, 2], [Property: User.Email (string) Index, 3], [Property: User.FirstName (string), 4], [Property: User.LastName (string), 5], [Property: User.ModifiedDate (DateTime) Required, 6], [Property: User.Password (string), 7], }
+        SELECT TOP(1) u.UserId, u.ConfirmPassword, u.CreatedDate, u.Email, u.FirstName, u.LastName, u.ModifiedDate, u.Password
+        FROM users AS u
+        WHERE (u.Email == @__loginModel_Email_0) && (u.Password == @__loginModel_Password_1)), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+    RepositoryLayer.Service.FundooNoteContext, 
+    False, 
+    False
+)
+    .SingleOrDefault()'
+2022-09-17 10:57:11.7500|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'.
+2022-09-17 10:57:11.7763|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (25ms).
+2022-09-17 10:57:11.7838|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'FundooNote' on server 'BALLA'.
+2022-09-17 10:57:12.1099|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'FundooNote' on server 'BALLA'.
+2022-09-17 10:57:12.1258|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[@__loginModel_Email_0='?' (Size = 450), @__loginModel_Password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[ConfirmPassword], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[LastName], [u].[ModifiedDate], [u].[Password]
+FROM [users] AS [u]
+WHERE ([u].[Email] = @__loginModel_Email_0) AND ([u].[Password] = @__loginModel_Password_1)
+2022-09-17 10:57:12.1694|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (54ms) [Parameters=[@__loginModel_Email_0='?' (Size = 450), @__loginModel_Password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[ConfirmPassword], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[LastName], [u].[ModifiedDate], [u].[Password]
+FROM [users] AS [u]
+WHERE ([u].[Email] = @__loginModel_Email_0) AND ([u].[Password] = @__loginModel_Password_1)
+2022-09-17 10:57:12.2107|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'FundooNoteContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-09-17 10:57:12.2591|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader was disposed.
+2022-09-17 10:57:12.2591|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'FundooNote' on server 'BALLA'.
+2022-09-17 10:57:12.2682|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'FundooNote' on server 'BALLA'.
+2022-09-17 10:57:12.6030|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method FundooNote.Controllers.UserController.LoginUser (FundooNote), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2062.0911ms.
+2022-09-17 10:57:12.6030|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter.
+2022-09-17 10:57:12.6030|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter.
+2022-09-17 10:57:12.6030|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter.
+2022-09-17 10:57:12.6030|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter.
+2022-09-17 10:57:12.6030|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter.
+2022-09-17 10:57:12.6030|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter.
+2022-09-17 10:57:12.6030|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.OkObjectResult.
+2022-09-17 10:57:12.6030|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter
+2022-09-17 10:57:12.6030|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|No information found on request to perform content negotiation.
+2022-09-17 10:57:12.6030|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2022-09-17 10:57:12.6030|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select the first formatter in the output formatters list which can write the result.
+2022-09-17 10:57:12.6030|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2022-09-17 10:57:12.6030|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type '<>f__AnonymousType5`4[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2022-09-17 10:57:12.6145|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.OkObjectResult.
+2022-09-17 10:57:12.6145|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter.
+2022-09-17 10:57:12.6145|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter.
+2022-09-17 10:57:12.6145|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action FundooNote.Controllers.UserController.LoginUser (FundooNote) in 2463.2285ms
+2022-09-17 10:57:12.6145|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'FundooNote.Controllers.UserController.LoginUser (FundooNote)'
+2022-09-17 10:57:12.6145|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'FundooNoteContext' disposed.
+2022-09-17 10:57:12.6145|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished in 2531.0117ms 200 application/json; charset=utf-8
